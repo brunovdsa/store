@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
+import MenuDropDown from '../Dropdown';
+
 import { Container } from './styles';
 
 interface HeaderProps {
@@ -11,20 +13,20 @@ export function Header(props: HeaderProps) {
   const { colors, title } = useContext(ThemeContext);
 
   return (
-    <header>
-      <Container>
-        <Switch
-          onChange={props.toggleTheme}
-          checked={title === 'dark'}
-          checkedIcon={false}
-          uncheckedIcon={false}
-          height={10}
-          width={40}
-          handleDiameter={20}
-          offColor={colors.primary}
-          onColor={colors.success}
-        />
-      </Container>
-    </header>
+    <Container>
+      <MenuDropDown />
+      <Switch
+        onChange={props.toggleTheme}
+        checked={title === 'dark'}
+        checkedIcon={false}
+        uncheckedIcon={false}
+        height={4}
+        width={30}
+        handleDiameter={15}
+        offColor={colors.success}
+        onColor={colors.success}
+        offHandleColor={colors.background_800}
+      />
+    </Container>
   );
 }

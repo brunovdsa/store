@@ -2,7 +2,7 @@ export default {
   title: 'light',
 
   colors: {
-    background_900: '#fff',
+    background_900: '#d4d4d8',
     background_800: '#fefefe',
 
     text: '#121212',
@@ -13,8 +13,8 @@ export default {
 
     shape: '#2a2634',
 
-    primary: '#6200ee',
-    success: '#03dac6',
+    primary: '#03dac6',
+    success: '#6200ee',
     error: '#b00020',
     overlay: 'rgba(0,0,0,0.6)',
   },
