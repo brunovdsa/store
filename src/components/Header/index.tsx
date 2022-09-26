@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
 import { Container } from './styles';
@@ -13,7 +13,6 @@ export function Header(props: HeaderProps) {
   return (
     <header>
       <Container>
-        header
         <Switch
           onChange={props.toggleTheme}
           checked={title === 'dark'}
