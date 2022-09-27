@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
-import MenuDropDown from '../Dropdown';
+import Navlist from '../Navlist';
 
 import { Container } from './styles';
 
@@ -14,7 +14,7 @@ export function Header(props: HeaderProps) {
 
   return (
     <Container>
-      <MenuDropDown />
+      <Navlist />
       <Switch
         onChange={props.toggleTheme}
         checked={title === 'dark'}

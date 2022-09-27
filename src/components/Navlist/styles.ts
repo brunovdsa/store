@@ -12,9 +12,8 @@ export const Button = styled.button`
 `;
 
 export const Nav = styled.nav`
-  background-color: ${(props) => props.theme.colors.background_900};
+  background-color: ${(props) => props.theme.colors.overlay};
   color: ${(props) => props.theme.colors.text};
-  font-size: ${(props) => props.theme.font_size.sm};
   position: fixed;
   top: 0;
   left: 0;
@@ -24,18 +23,19 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 1.5rem;
   z-index: 1;
 `;
 
-export const StyledNavLink = styled.ul`
-  > a {
-    color: ${(props) => props.theme.colors.text};
-    font-size: ${(props) => props.theme.font_size.sm};
+export const StyledNavLink = styled.div`
+  > nav > a {
+    color: ${(props) => props.theme.colors.text_overlay};
+    font-size: ${(props) => props.theme.font_size.md};
+    font-weight: ${(props) => props.theme.font_weight.bold};
     text-decoration: none;
   }
 `;
 
 export const Li = styled.li`
   color: ${(props) => props.theme.colors.text};
-  font-size: ${(props) => props.theme.font_size.sm};
 `;

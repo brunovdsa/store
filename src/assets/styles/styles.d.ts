@@ -9,6 +9,7 @@ declare module 'styled-components' {
       background_800: string;
 
       text: string;
+      text_overlay: string;
 
       caption_500: string;
       caption_400: string;

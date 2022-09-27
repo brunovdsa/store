@@ -6,6 +6,7 @@ export default {
     background_800: '#fefefe',
 
     text: '#121212',
+    text_overlay: '#fff',
 
     caption_500: '#71717a',
     caption_400: '#a1a1aa',
@@ -32,7 +33,7 @@ export default {
 
   font_size: {
     sm: '1rem',
-    md: '2rem',
+    md: '1.3rem',
     lg: '3rem',
   },
 };
