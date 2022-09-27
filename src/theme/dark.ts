@@ -17,7 +17,7 @@ export default {
     primary: '#8b5cf6',
     success: '#03dac6',
     error: '#cf6679',
-    overlay: 'rgba(0,0,0,0.6)',
+    overlay: 'rgba(0,0,0,0.9)',
   },
 
   font_family: {
@@ -33,7 +33,7 @@ export default {
 
   font_size: {
     sm: '1rem',
-    md: '1.3rem',
+    md: '1.2rem',
     lg: '3rem',
   },
 };

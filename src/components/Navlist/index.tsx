@@ -21,11 +21,13 @@ export default function Navlist() {
             <Button onClick={onClick}>
               <CloseIcon />
             </Button>
-            <NavLink to={'/'}>Home</NavLink>
-            <NavLink to={'/eletronics'}>Eletronics</NavLink>
-            <NavLink to={'/jewlery'}>Jewlery</NavLink>
-            <NavLink to={'/men-clothing'}>Men's clothing</NavLink>
-            <NavLink to={'/women-clothing'}>Women clothing</NavLink>
+            <NavLink to={'/'} onClick={onClick}>
+              Home
+            </NavLink>
+            <NavLink to={'/category/eletronics'}>Eletronics</NavLink>
+            <NavLink to={'/category/jewlery'}>Jewlery</NavLink>
+            <NavLink to={'/category/men-clothing'}>Men's clothing</NavLink>
+            <NavLink to={'/category/women-clothing'}>Women clothing</NavLink>
           </Nav>
         </StyledNavLink>
       )}

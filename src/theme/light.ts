@@ -17,7 +17,7 @@ export default {
     primary: '#03dac6',
     success: '#6200ee',
     error: '#b00020',
-    overlay: 'rgba(0,0,0,0.6)',
+    overlay: 'rgba(0,0,0,0.9)',
   },
 
   font_family: {

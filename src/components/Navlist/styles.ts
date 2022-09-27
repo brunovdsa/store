@@ -28,10 +28,11 @@ export const Nav = styled.nav`
 `;
 
 export const StyledNavLink = styled.div`
-  > nav > a {
+  > nav > button,
+  a {
     color: ${(props) => props.theme.colors.text_overlay};
-    font-size: ${(props) => props.theme.font_size.md};
-    font-weight: ${(props) => props.theme.font_weight.bold};
+    font-size: ${(props) => props.theme.font_size.sm};
+    font-weight: ${(props) => props.theme.font_weight.black};
     text-decoration: none;
   }
 `;

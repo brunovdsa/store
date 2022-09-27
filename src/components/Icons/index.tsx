@@ -6,5 +6,5 @@ export function MenuIcon() {
 }
 
 export function CloseIcon() {
-  return <FontAwesomeIcon icon={faXmark} />;
+  return <FontAwesomeIcon icon={faXmark} size='xl' />;
 }
