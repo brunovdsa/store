@@ -18,6 +18,7 @@ export default function ProductList() {
     <Container>
       {data.map((item: ProductListProps) => (
         <ProductCard
+          key={item.id}
           title={`${item.title.slice(0, 20)}...`}
           price={`$${item.price}`}
           image={item.image}
