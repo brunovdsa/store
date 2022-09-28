@@ -31,8 +31,8 @@ export const SyledContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 1rem 0;
-    width: fit-content;
+    padding: 0 0.5rem 0;
+    width: 100%;
   }
 
   div > span {
@@ -41,6 +41,10 @@ export const SyledContent = styled.div`
     font-weight: ${(props) => props.theme.font_weight.bold};
     border-top: 1px solid ${(props) => props.theme.colors.text};
     width: 100%;
+
+    color: ${(props) => props.theme.colors.text};
+
+    text-decoration: none;
   }
 `;
 
@@ -49,4 +53,6 @@ export const H1 = styled.h1`
   font-size: ${(props) => props.theme.font_size.xsm};
   font-weight: ${(props) => props.theme.font_weight.regular};
   flex-shrink: 1;
+
+  text-decoration: none;
 `;

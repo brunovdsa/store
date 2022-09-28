@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard, { ProductCardProps } from '../ProductCard';
 import { Container } from './styles';
 
@@ -17,12 +18,14 @@ export default function ProductList() {
   return (
     <Container>
       {data.map((item: ProductListProps) => (
-        <ProductCard
-          key={item.id}
-          title={`${item.title.slice(0, 17)}...`}
-          price={`$${item.price}`}
-          image={item.image}
-        />
+        <Link to={`/product/${item.id}`}>
+          <ProductCard
+            key={item.id}
+            title={`${item.title.slice(0, 17)}...`}
+            price={`$${item.price}`}
+            image={item.image}
+          />
+        </Link>
       ))}
     </Container>
   );
