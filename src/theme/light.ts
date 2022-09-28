@@ -2,6 +2,7 @@ export default {
   title: 'light',
 
   colors: {
+    background_default: '#fff',
     background_900: '#d4d4d8',
     background_800: '#fefefe',
 
@@ -32,6 +33,7 @@ export default {
   },
 
   font_size: {
+    xsm: '0.9rem',
     sm: '1rem',
     md: '1.3rem',
     lg: '3rem',

@@ -5,6 +5,7 @@ declare module 'styled-components' {
     title: string;
 
     colors: {
+      background_default: string;
       background_900: string;
       background_800: string;
 
@@ -35,6 +36,7 @@ declare module 'styled-components' {
     };
 
     font_size: {
+      xsm: string;
       sm: string;
       md: string;
       lg: string;
