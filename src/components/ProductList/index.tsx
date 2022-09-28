@@ -19,7 +19,7 @@ export default function ProductList() {
       {data.map((item: ProductListProps) => (
         <ProductCard
           key={item.id}
-          title={`${item.title.slice(0, 20)}...`}
+          title={`${item.title.slice(0, 17)}...`}
           price={`$${item.price}`}
           image={item.image}
         />

@@ -23,8 +23,8 @@ export function Header(props: HeaderProps) {
         height={4}
         width={30}
         handleDiameter={15}
-        offColor={colors.success}
-        onColor={colors.success}
+        offColor={colors.text}
+        onColor={colors.text}
         offHandleColor={colors.background_800}
       />
     </Container>

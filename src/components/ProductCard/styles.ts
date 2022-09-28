@@ -21,8 +21,10 @@ export const Img = styled.img`
 export const SyledContent = styled.div`
   height: 16.5rem;
   background-color: ${(props) => props.theme.colors.background_800};
-  border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 3px;
+  box-shadow: 0px 2px 2px 0px hsla(0, 0%, 0%, 0.14),
+    0px 3px 1px -2px hsla(0, 0%, 0%, 0.12), 0px 1px 5px 0px hsla(0, 0%, 0%, 0.2);
+  width: -webkit-fill-available;
 
   div {
     padding-top: 0;
@@ -30,6 +32,7 @@ export const SyledContent = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding: 0 1rem 0;
+    width: fit-content;
   }
 
   div > span {

@@ -2,8 +2,6 @@ import { ThemeProvider } from 'styled-components';
 import { DefaultTheme } from 'styled-components';
 
 import usePersistedState from '../../utils/usePersistedState';
-
-import ProductCard from '../../components/ProductCard';
 import { Header } from '../../components/Header';
 
 import GlobalStyle from '../../assets/styles/global';
