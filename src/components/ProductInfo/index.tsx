@@ -28,26 +28,30 @@ export default function ProductInfo(props: ProductInfoProps) {
           <span>
             Size: <span>{size}</span>
           </span>
-          <Container>
-            <Button onClick={handleSize} value='XS'>
-              XS
-            </Button>
-            <Button onClick={handleSize} value='S'>
-              S
-            </Button>
-            <Button onClick={handleSize} value='S'>
-              S
-            </Button>
-            <Button onClick={handleSize} value='L'>
-              L
-            </Button>
-            <Button onClick={handleSize} value='XL'>
-              XL
-            </Button>
-            <Button onClick={handleSize} value='XXL'>
-              XXL
-            </Button>
-          </Container>
+          {props.category.includes('clothing') ? (
+            <Container>
+              <Button onClick={handleSize} value='XS'>
+                XS
+              </Button>
+              <Button onClick={handleSize} value='S'>
+                S
+              </Button>
+              <Button onClick={handleSize} value='S'>
+                S
+              </Button>
+              <Button onClick={handleSize} value='L'>
+                L
+              </Button>
+              <Button onClick={handleSize} value='XL'>
+                XL
+              </Button>
+              <Button onClick={handleSize} value='XXL'>
+                XXL
+              </Button>
+            </Container>
+          ) : (
+            <span></span>
+          )}
         </Container>
         <Container>
           <ButtonAddToCart>ADD TO CART</ButtonAddToCart>
