@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductCard, { ProductCardProps } from '../ProductCard';
+import { ProductProps } from '../../interface/productInterface';
+import ProductCard from '../ProductCard';
 import { Container } from './styles';
 
-interface ProductListProps extends ProductCardProps {}
+interface ProductListProps extends ProductProps {}
 
 export default function ProductList() {
   const [data, setData] = useState<ProductListProps[]>([]);

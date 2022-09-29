@@ -1,3 +1,8 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import axios from 'axios';
+
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import usePersistedState from '../../utils/usePersistedState';
@@ -6,20 +11,17 @@ import dark from '../../theme/dark';
 import light from '../../theme/light';
 
 import { Container } from './styles';
-import { Header } from '../../components/Header';
-
 import GlobalStyle from '../../assets/styles/global';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import ProductInfo from '../../components/ProductInfo';
-import { ProductProps } from '../../interface/productInterface';
 
-interface DetailedProductProps extends ProductProps {}
+import { Header } from '../../components/Header';
+import ProductInfo from '../../components/ProductInfo';
+
+import { ProductProps } from '../../interface/productInterface';
+import RelatedProducts from '../../components/RelatedProducts';
 
 export default function Product() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
-  const [data, setData] = useState<DetailedProductProps>();
+  const [data, setData] = useState<ProductProps>();
 
   const { id } = useParams();
 
@@ -52,6 +54,12 @@ export default function Product() {
         <Container>
           <span>teste</span>
         </Container>
+      )}
+
+      {data !== undefined ? (
+        <RelatedProducts category={data.category} id={data.id} />
+      ) : (
+        <Container></Container>
       )}
     </ThemeProvider>
   );
