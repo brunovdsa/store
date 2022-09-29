@@ -55,7 +55,7 @@ export default function RelatedProducts(props: RelatedProductsProps) {
           <Link to={`/product/${item.id}`} key={item.id} onClick={scrollToTop}>
             <ProductCard
               title={`${item.title.slice(0, 17)}...`}
-              price={item.price}
+              price={`$${item.price}`}
               image={item.image}
             />
           </Link>
