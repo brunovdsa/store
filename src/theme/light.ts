@@ -9,6 +9,8 @@ export default {
     text: '#121212',
     text_overlay: '#fff',
 
+    negative_color: '#a1a1aa',
+
     caption_500: '#71717a',
     caption_400: '#a1a1aa',
     caption_300: '#d4d4d8',
@@ -36,6 +38,6 @@ export default {
     xsm: '0.8rem',
     sm: '1rem',
     md: '1.3rem',
-    lg: '3rem',
+    lg: '1.9rem',
   },
 };

@@ -10,6 +10,6 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.colors.background_800};
     font-size: 14px;
     color: ${(props) => props.theme.colors.text};
-    font-family: sans-serif;
+    font-family: ${(props) => props.theme.font_family.inter};
   }
 `;

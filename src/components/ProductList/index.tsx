@@ -13,14 +13,13 @@ export default function ProductList() {
     axios('https://fakestoreapi.com/products').then((response) => {
       setData(response.data);
     });
-  }, []);
+  }, [data]);
 
   return (
     <Container>
       {data.map((item: ProductListProps) => (
-        <Link to={`/product/${item.id}`}>
+        <Link to={`/product/${item.id}`} key={item.id}>
           <ProductCard
-            key={item.id}
             title={`${item.title.slice(0, 17)}...`}
             price={`$${item.price}`}
             image={item.image}

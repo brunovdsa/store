@@ -9,6 +9,8 @@ export default {
     text: '#ffffff',
     text_overlay: '#fff',
 
+    negative_color: '#c1c1c1',
+
     caption_500: '#71717a',
     caption_400: '#a1a1aa',
     caption_300: '#d4d4d8',
@@ -35,7 +37,7 @@ export default {
   font_size: {
     xsm: '0.8rem',
     sm: '1rem',
-    md: '1.2rem',
-    lg: '3rem',
+    md: '1.3rem',
+    lg: '1.9rem',
   },
 };

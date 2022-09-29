@@ -1,18 +1,9 @@
 import { Container, Header, Img, SyledContent, H1 } from './styles';
 
 export interface ProductCardProps {
-  id?: number;
   title: string;
   price: string;
-  description?: string;
-  category?: string;
   image: string;
-  rating?: Rating;
-}
-
-export interface Rating {
-  rate: number;
-  count: number;
 }
 
 export default function ProductCard(props: ProductCardProps) {

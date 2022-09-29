@@ -12,6 +12,8 @@ declare module 'styled-components' {
       text: string;
       text_overlay: string;
 
+      negative_color: string;
+
       caption_500: string;
       caption_400: string;
       caption_300: string;
