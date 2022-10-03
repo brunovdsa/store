@@ -27,48 +27,46 @@ export default function Navlist(props: NavListProps) {
         <MenuIcon />
       </Button>
 
-      {isActive && (
-        <StyledNavLink>
-          <Nav ref={dropDownRef}>
-            <Button onClick={onClick}>
-              <CloseIcon />
-            </Button>
-            <NavLink to={'/'} onClick={onClick}>
-              Home
-            </NavLink>
-            <NavLink to={'/products/category/electronics'} onClick={onClick}>
-              Eletronics
-            </NavLink>
-            <NavLink to={'/products/category/jewelery'} onClick={onClick}>
-              Jewlery
-            </NavLink>
-            <NavLink
-              to={"/products/category/men's%20clothing"}
-              onClick={onClick}
-            >
-              Men's clothing
-            </NavLink>
-            <NavLink
-              to={"/products/category/women's%20clothing"}
-              onClick={onClick}
-            >
-              Women clothing
-            </NavLink>
-            <Switch
-              onChange={props.toggleTheme}
-              checked={title === 'dark'}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              height={4}
-              width={30}
-              handleDiameter={15}
-              offColor={colors.text_overlay}
-              onColor={colors.text_overlay}
-              offHandleColor={colors.text_overlay_negative}
-            />
-          </Nav>
-        </StyledNavLink>
-      )}
+      {isActive && <StyledNavLink />}
+      <Nav
+        ref={dropDownRef}
+        style={
+          isActive
+            ? { left: 0, transition: '450ms' }
+            : { left: '-100%', transition: '450ms' }
+        }
+      >
+        <Button onClick={onClick}>
+          <CloseIcon />
+        </Button>
+        <NavLink to={'/'} onClick={onClick}>
+          Home
+        </NavLink>
+        <NavLink to={'/products/category/electronics'} onClick={onClick}>
+          Eletronics
+        </NavLink>
+        <NavLink to={'/products/category/jewelery'} onClick={onClick}>
+          Jewlery
+        </NavLink>
+        <NavLink to={"/products/category/men's%20clothing"} onClick={onClick}>
+          Men's clothing
+        </NavLink>
+        <NavLink to={"/products/category/women's%20clothing"} onClick={onClick}>
+          Women clothing
+        </NavLink>
+        <Switch
+          onChange={props.toggleTheme}
+          checked={title === 'dark'}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          height={4}
+          width={30}
+          handleDiameter={15}
+          offColor={colors.text_overlay}
+          onColor={colors.text_overlay}
+          offHandleColor={colors.text_overlay_negative}
+        />
+      </Nav>
     </Container>
   );
 }
