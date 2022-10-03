@@ -11,6 +11,7 @@ declare module 'styled-components' {
 
       text: string;
       text_overlay: string;
+      text_overlay_negative: string;
 
       negative_color: string;
 

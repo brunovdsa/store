@@ -8,6 +8,7 @@ export default {
 
     text: '#121212',
     text_overlay: '#fff',
+    text_overlay_negative: '#2a2634',
 
     negative_color: '#a1a1aa',
 

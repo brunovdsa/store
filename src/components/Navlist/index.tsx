@@ -3,7 +3,16 @@ import { useRef, useState } from 'react';
 import { MenuIcon, CloseIcon } from '../Icons';
 import { Button, Nav, Container, StyledNavLink } from './styles';
 
-export default function Navlist() {
+import { useContext } from 'react';
+import Switch from 'react-switch';
+import { ThemeContext } from 'styled-components';
+
+interface NavListProps {
+  toggleTheme(): void;
+}
+
+export default function Navlist(props: NavListProps) {
+  const { colors, title } = useContext(ThemeContext);
   const dropDownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const onClick = () => setIsActive(!isActive);
@@ -28,6 +37,18 @@ export default function Navlist() {
             <NavLink to={'/category/jewlery'}>Jewlery</NavLink>
             <NavLink to={'/category/men-clothing'}>Men's clothing</NavLink>
             <NavLink to={'/category/women-clothing'}>Women clothing</NavLink>
+            <Switch
+              onChange={props.toggleTheme}
+              checked={title === 'dark'}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={4}
+              width={30}
+              handleDiameter={15}
+              offColor={colors.text_overlay}
+              onColor={colors.text_overlay}
+              offHandleColor={colors.text_overlay_negative}
+            />
           </Nav>
         </StyledNavLink>
       )}

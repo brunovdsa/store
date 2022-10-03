@@ -1,10 +1,15 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { animateScroll as scroll } from 'react-scroll';
+import axios from 'axios';
+
 import { ProductProps } from '../../interface/productInterface';
-import ProductCard from '../ProductCard';
-import { Container, ContainerProductList, H1, Title } from './styles';
+
 import GlobalStyle from '../../assets/styles/global';
+import ProductCard from '../ProductCard';
+
+import { Container, ContainerProductList, H1, Title } from './styles';
 
 export interface RelatedProductsProps {
   id: number;
@@ -30,11 +35,9 @@ export default function RelatedProducts(props: RelatedProductsProps) {
     setCategory(props.category.slice(0, 7) + '%20' + props.category.slice(8));
   }
 
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-    });
-  }
+  const scrollToTop = () => {
+    scroll.scrollToTop({ duration: 500 });
+  };
 
   useEffect(() => {
     axios(`https://fakestoreapi.com/products/category/${category}`).then(

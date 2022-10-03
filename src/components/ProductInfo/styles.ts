@@ -83,7 +83,7 @@ export const Button = styled.button`
 `;
 
 export const ContainerDescription = styled.div`
-  margin: 0 0 5rem;
+  margin: 0 0 3rem;
   p {
     color: ${(props) => props.theme.colors.text};
     font-size: ${(props) => props.theme.font_size.sm};

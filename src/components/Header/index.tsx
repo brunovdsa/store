@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-import Switch from 'react-switch';
-import { ThemeContext } from 'styled-components';
 import Navlist from '../Navlist';
 
 import { Container } from './styles';
@@ -10,23 +7,9 @@ interface HeaderProps {
 }
 
 export function Header(props: HeaderProps) {
-  const { colors, title } = useContext(ThemeContext);
-
   return (
     <Container>
-      <Navlist />
-      <Switch
-        onChange={props.toggleTheme}
-        checked={title === 'dark'}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        height={4}
-        width={30}
-        handleDiameter={15}
-        offColor={colors.text}
-        onColor={colors.text}
-        offHandleColor={colors.background_800}
-      />
+      <Navlist toggleTheme={props.toggleTheme} />
     </Container>
   );
 }

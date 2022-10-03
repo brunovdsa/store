@@ -4,6 +4,8 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 95vw;
   justify-content: center;
+  border-top: 1px solid ${(props) => props.theme.colors.caption_300};
+  padding: 2rem 0;
 `;
 
 export const Title = styled.div`
