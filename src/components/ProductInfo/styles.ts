@@ -10,7 +10,7 @@ export const Header = styled.header`
   display: flex;
   flex-direction: column;
 
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   padding: 1rem 0;
 
   border-bottom: 1px solid ${(props) => props.theme.colors.caption_300};
