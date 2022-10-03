@@ -1,24 +1,23 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ProductProps } from '../../interface/productInterface';
-import ProductCard from '../ProductCard';
+
+import ProductCard, { ProductCardProps } from '../ProductCard';
 import { Container } from './styles';
 
-interface ProductListProps extends ProductProps {}
+export interface ProductListProps {
+  data: ItemProps[];
+}
 
-export default function ProductList() {
-  const [data, setData] = useState<ProductListProps[]>([]);
+export interface ItemProps {
+  id: string;
+  title: string;
+  price: string;
+  image: string;
+}
 
-  useEffect(() => {
-    axios('https://fakestoreapi.com/products').then((response) => {
-      setData(response.data);
-    });
-  }, [data]);
-
+export default function ProductList(props: ProductListProps) {
   return (
     <Container>
-      {data.map((item: ProductListProps) => (
+      {props.data.map((item: ItemProps) => (
         <Link to={`/product/${item.id}`} key={item.id}>
           <ProductCard
             title={`${item.title.slice(0, 17)}...`}

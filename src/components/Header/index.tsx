@@ -4,6 +4,7 @@ import { Container } from './styles';
 
 interface HeaderProps {
   toggleTheme(): void;
+  id?: string;
 }
 
 export function Header(props: HeaderProps) {

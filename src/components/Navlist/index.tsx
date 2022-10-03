@@ -33,10 +33,24 @@ export default function Navlist(props: NavListProps) {
             <NavLink to={'/'} onClick={onClick}>
               Home
             </NavLink>
-            <NavLink to={'/category/eletronics'}>Eletronics</NavLink>
-            <NavLink to={'/category/jewlery'}>Jewlery</NavLink>
-            <NavLink to={'/category/men-clothing'}>Men's clothing</NavLink>
-            <NavLink to={'/category/women-clothing'}>Women clothing</NavLink>
+            <NavLink to={'/products/category/electronics'} onClick={onClick}>
+              Eletronics
+            </NavLink>
+            <NavLink to={'/products/category/jewelery'} onClick={onClick}>
+              Jewlery
+            </NavLink>
+            <NavLink
+              to={"/products/category/men's%20clothing"}
+              onClick={onClick}
+            >
+              Men's clothing
+            </NavLink>
+            <NavLink
+              to={"/products/category/women's%20clothing"}
+              onClick={onClick}
+            >
+              Women clothing
+            </NavLink>
             <Switch
               onChange={props.toggleTheme}
               checked={title === 'dark'}
