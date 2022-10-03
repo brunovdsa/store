@@ -5,6 +5,6 @@ export const Container = styled.div`
   color: ${(props) => props.theme.colors.text};
   height: 100%;
   width: 100%;
-  margin: 3rem 0;
+  margin: 1rem 0;
   gap: 1rem;
 `;
