@@ -13,8 +13,9 @@ import GlobalStyle from '../../assets/styles/global';
 import dark from '../../theme/dark';
 import light from '../../theme/light';
 
-import { Container } from './styles';
+import { Container, PathContainer } from './styles';
 import { API } from '../../services';
+import ProductPath from '../../components/ProductPath';
 
 export default function Category() {
   const [data, setData] = useState<ItemProps[]>([]);
@@ -41,6 +42,9 @@ export default function Category() {
       <GlobalStyle />
       <Container>
         <Header toggleTheme={toggleTheme} />
+        <PathContainer>
+          <ProductPath to={'/'} content={'Home'} />
+        </PathContainer>
         <ProductList data={data} />
       </Container>
     </ThemeProvider>
