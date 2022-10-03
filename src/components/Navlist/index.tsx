@@ -1,20 +1,24 @@
+import { useContext, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useRef, useState } from 'react';
-import { MenuIcon, CloseIcon } from '../Icons';
+import Switch from 'react-switch';
+
+import { ThemeContext } from 'styled-components';
+
 import { Button, Nav, Container, StyledNavLink } from './styles';
 
-import { useContext } from 'react';
-import Switch from 'react-switch';
-import { ThemeContext } from 'styled-components';
+import { MenuIcon, CloseIcon } from '../Icons';
 
 interface NavListProps {
   toggleTheme(): void;
 }
 
 export default function Navlist(props: NavListProps) {
-  const { colors, title } = useContext(ThemeContext);
-  const dropDownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+
+  const { colors, title } = useContext(ThemeContext);
+
+  const dropDownRef = useRef(null);
+
   const onClick = () => setIsActive(!isActive);
 
   return (
@@ -22,9 +26,8 @@ export default function Navlist(props: NavListProps) {
       <Button onClick={onClick}>
         <MenuIcon />
       </Button>
-      {!isActive ? (
-        <span style={{ display: 'none' }}></span>
-      ) : (
+
+      {isActive && (
         <StyledNavLink>
           <Nav ref={dropDownRef}>
             <Button onClick={onClick}>
