@@ -18,6 +18,7 @@ import ProductInfo from '../../components/ProductInfo';
 
 import { ProductProps } from '../../interface/productInterface';
 import RelatedProducts from '../../components/RelatedProducts';
+import { API } from '../../services';
 
 export default function Product() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
@@ -26,7 +27,7 @@ export default function Product() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${id}`).then((response) => {
+    API.get(`/products/${id}`).then((response) => {
       setData(response.data);
     });
   }, [id]);

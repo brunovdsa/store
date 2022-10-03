@@ -14,6 +14,7 @@ import dark from '../../theme/dark';
 import light from '../../theme/light';
 
 import { Container } from './styles';
+import { API } from '../../services';
 
 export default function Category() {
   const [data, setData] = useState<ItemProps[]>([]);
@@ -29,11 +30,9 @@ export default function Category() {
   console.log(id);
 
   useEffect(() => {
-    axios(`https://fakestoreapi.com/products/category/${id}`).then(
-      (response) => {
-        setData(response.data);
-      }
-    );
+    API.get(`/products/category/${id}`).then((response) => {
+      setData(response.data);
+    });
   }, [id]);
 
   console.log(data);
