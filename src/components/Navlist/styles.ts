@@ -7,7 +7,7 @@ export const Button = styled.button`
   font-family: ${(props) => props.theme.font_family.inter};
   color: ${(props) => props.theme.colors.text};
   border: none;
-  height: 3rem;
+
   width: 4rem;
 `;
 
@@ -28,10 +28,9 @@ export const Nav = styled.nav`
   height: 100%;
   width: 70%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 1.5rem;
   z-index: 1;
 
   button,
@@ -40,6 +39,22 @@ export const Nav = styled.nav`
     font-size: ${(props) => props.theme.font_size.sm};
     font-weight: ${(props) => props.theme.font_weight.black};
     text-decoration: none;
+    border-bottom: 1px solid ${(props) => props.theme.colors.caption_400};
+    width: 100%;
+    padding: 0.5rem;
+  }
+`;
+
+export const NavHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid ${(props) => props.theme.colors.caption_400};
+
+  button {
+    width: fit-content;
+    border: none;
   }
 `;
 

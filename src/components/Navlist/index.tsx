@@ -4,9 +4,11 @@ import Switch from 'react-switch';
 
 import { ThemeContext } from 'styled-components';
 
-import { Button, Nav, Container, StyledNavLink } from './styles';
+import { Button, Nav, Container, StyledNavLink, NavHeader } from './styles';
 
 import { MenuIcon, CloseIcon } from '../Icons';
+import DropDown from '../DropDown';
+import { Menu } from '@headlessui/react';
 
 interface NavListProps {
   toggleTheme(): void;
@@ -36,9 +38,11 @@ export default function Navlist(props: NavListProps) {
             : { left: '-100%', transition: '450ms' }
         }
       >
-        <Button onClick={onClick}>
-          <CloseIcon />
-        </Button>
+        <NavHeader>
+          <Button onClick={onClick}>
+            <CloseIcon />
+          </Button>
+        </NavHeader>
         <NavLink to={'/'} onClick={onClick}>
           Home
         </NavLink>
@@ -48,12 +52,26 @@ export default function Navlist(props: NavListProps) {
         <NavLink to={'/products/category/jewelery'} onClick={onClick}>
           Jewlery
         </NavLink>
-        <NavLink to={"/products/category/men's%20clothing"} onClick={onClick}>
-          Men's clothing
-        </NavLink>
-        <NavLink to={"/products/category/women's%20clothing"} onClick={onClick}>
-          Women clothing
-        </NavLink>
+
+        <DropDown>
+          <Menu.Item>
+            <NavLink
+              to={"/products/category/men's%20clothing"}
+              onClick={onClick}
+            >
+              Men's clothing
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink
+              to={"/products/category/women's%20clothing"}
+              onClick={onClick}
+            >
+              Women's clothing
+            </NavLink>
+          </Menu.Item>
+        </DropDown>
+
         <Switch
           onChange={props.toggleTheme}
           checked={title === 'dark'}
@@ -66,6 +84,7 @@ export default function Navlist(props: NavListProps) {
           onColor={colors.text_overlay}
           offHandleColor={colors.text_overlay_negative}
         />
+        <div>User</div>
       </Nav>
     </Container>
   );

@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faAngleDown,
   faBars,
+  faChevronCircleDown,
   faMagnifyingGlass,
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
@@ -10,9 +12,13 @@ export function MenuIcon() {
 }
 
 export function CloseIcon() {
-  return <FontAwesomeIcon icon={faXmark} size='xl' />;
+  return <FontAwesomeIcon icon={faXmark} size='lg' />;
 }
 
 export function SearchIcon() {
   return <FontAwesomeIcon icon={faMagnifyingGlass} />;
+}
+
+export function ExpandIcon() {
+  return <FontAwesomeIcon icon={faAngleDown} />;
 }

@@ -1,5 +1,7 @@
 import 'styled-components';
 
+import 'styled-dropdown-component';
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
@@ -46,3 +48,5 @@ declare module 'styled-components' {
     };
   }
 }
+
+declare module 'styled-dropdown-component';
