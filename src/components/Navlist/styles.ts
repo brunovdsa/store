@@ -58,6 +58,23 @@ export const NavHeader = styled.div`
   }
 `;
 
+export const NavContent = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const NavFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh;
+  padding: 0 0.3rem 1.3rem;
+`;
+
 export const Li = styled.li`
   color: ${(props) => props.theme.colors.text};
 `;

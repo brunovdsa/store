@@ -19,6 +19,10 @@ export function SearchIcon() {
   return <FontAwesomeIcon icon={faMagnifyingGlass} />;
 }
 
-export function ExpandIcon() {
-  return <FontAwesomeIcon icon={faAngleDown} />;
+interface expandIconProps {
+  style: React.CSSProperties;
+}
+
+export function ExpandIcon(props: expandIconProps) {
+  return <FontAwesomeIcon icon={faAngleDown} style={props.style} />;
 }

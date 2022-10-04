@@ -22,7 +22,8 @@
     "react-scroll": "^1.8.7",
     "react-switch": "^7.0.0",
     "styled-components": "^5.3.5",
-    "styled-dropdown-component": "^4.0.0"
+    "styled-dropdown-component": "^4.0.0",
+    "vercel": "^28.4.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
