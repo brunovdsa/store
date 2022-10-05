@@ -2,7 +2,9 @@ import { useContext, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Switch from 'react-switch';
 
-import { ThemeContext } from 'styled-components';
+import { DefaultTheme, ThemeContext } from 'styled-components';
+
+import usePersistedState from '../../utils/usePersistedState';
 
 import {
   Button,
@@ -12,11 +14,14 @@ import {
   NavHeader,
   NavContent,
   NavFooter,
+  ThemeSwitcher,
 } from './styles';
 
-import { MenuIcon, CloseIcon } from '../Icons';
+import { MenuIcon, CloseIcon, MoonIcon, SunIcon } from '../Icons';
 import DropDown from '../DropDown';
 import { Menu } from '@headlessui/react';
+import light from '../../theme/light';
+import dark from '../../theme/dark';
 
 interface NavListProps {
   toggleTheme(): void;
@@ -24,12 +29,16 @@ interface NavListProps {
 
 export default function Navlist(props: NavListProps) {
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
 
   const { colors, title } = useContext(ThemeContext);
 
   const dropDownRef = useRef(null);
 
   const onClick = () => setIsActive(!isActive);
+
+  const toogleIcon = (e: any) =>
+    setTheme(theme.title === 'dark' ? light : dark);
 
   return (
     <Container>
@@ -85,18 +94,31 @@ export default function Navlist(props: NavListProps) {
 
         <NavFooter>
           <div>User</div>
-          <Switch
-            onChange={props.toggleTheme}
-            checked={title === 'dark'}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            height={4}
-            width={30}
-            handleDiameter={15}
-            offColor={colors.text_overlay}
-            onColor={colors.text_overlay}
-            offHandleColor={colors.text_overlay_negative}
-          />
+          <ThemeSwitcher>
+            <button
+              style={{
+                backgroundColor: 'transparent',
+                border: 'none',
+                height: '3rem',
+                width: '5rem',
+              }}
+              onClick={toogleIcon}
+            >
+              {theme.title === 'dark' ? <SunIcon /> : <MoonIcon />}
+              <Switch
+                onChange={props.toggleTheme}
+                checked={title === 'dark'}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                height={4}
+                width={30}
+                handleDiameter={15}
+                offColor={colors.text_overlay}
+                onColor={colors.text_overlay}
+                offHandleColor={colors.text_overlay_negative}
+              />
+            </button>
+          </ThemeSwitcher>
         </NavFooter>
       </Nav>
     </Container>

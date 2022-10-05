@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
+export const ThemeSwitcher = styled.div`
+  button > svg {
+    margin-right: 0.3rem;
+  }
+`;
+
 export const Button = styled.button`
   background-color: transparent;
   font-family: ${(props) => props.theme.font_family.inter};

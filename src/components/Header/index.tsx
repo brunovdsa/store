@@ -1,3 +1,4 @@
+import { DefaultTheme } from 'styled-components';
 import Navlist from '../Navlist';
 
 import { Container } from './styles';
