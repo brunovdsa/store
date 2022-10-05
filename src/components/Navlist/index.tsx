@@ -14,7 +14,8 @@ import {
   NavHeader,
   NavContent,
   NavFooter,
-  ThemeSwitcher,
+  ThemeSwitcherButton,
+  ThemeSwitcherContainer,
 } from './styles';
 
 import { MenuIcon, CloseIcon, MoonIcon, SunIcon } from '../Icons';
@@ -22,6 +23,7 @@ import DropDown from '../DropDown';
 import { Menu } from '@headlessui/react';
 import light from '../../theme/light';
 import dark from '../../theme/dark';
+import ProfileMenuDropDown from '../ProfileDropDownMenu/index';
 
 interface NavListProps {
   toggleTheme(): void;
@@ -93,9 +95,9 @@ export default function Navlist(props: NavListProps) {
         </NavContent>
 
         <NavFooter>
-          <div>User</div>
-          <ThemeSwitcher>
-            <button
+          <ThemeSwitcherContainer>
+            <ProfileMenuDropDown />
+            <ThemeSwitcherButton
               style={{
                 backgroundColor: 'transparent',
                 border: 'none',
@@ -117,8 +119,8 @@ export default function Navlist(props: NavListProps) {
                 onColor={colors.text_overlay}
                 offHandleColor={colors.text_overlay_negative}
               />
-            </button>
-          </ThemeSwitcher>
+            </ThemeSwitcherButton>
+          </ThemeSwitcherContainer>
         </NavFooter>
       </Nav>
     </Container>

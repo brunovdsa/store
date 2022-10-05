@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleDown,
   faBars,
-  faChevronCircleDown,
   faMagnifyingGlass,
   faMoon,
   faSun,
+  faUser,
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,4 +35,8 @@ export function MoonIcon() {
 
 export function SunIcon() {
   return <FontAwesomeIcon icon={faSun} />;
+}
+
+export function ProfileIcon() {
+  return <FontAwesomeIcon icon={faUser} size={'sm'} />;
 }

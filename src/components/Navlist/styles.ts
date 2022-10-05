@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
-export const ThemeSwitcher = styled.div`
-  button > svg {
-    margin-right: 0.3rem;
-  }
-`;
-
 export const Button = styled.button`
   background-color: transparent;
   font-family: ${(props) => props.theme.font_family.inter};
@@ -79,6 +73,22 @@ export const NavFooter = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0 0.3rem 1.3rem;
+`;
+
+export const ThemeSwitcherContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+`;
+
+export const ThemeSwitcherButton = styled.button`
+  display: flex;
+  align-items: center;
+  svg {
+    margin: 0.1rem 0.3rem 0;
+  }
 `;
 
 export const Li = styled.li`
