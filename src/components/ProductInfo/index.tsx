@@ -7,12 +7,17 @@ import {
   Header,
   ContainerDescription,
   ButtonAddToCart,
+  SelectQty,
+  ContainerSelectQty,
+  Span,
+  Price,
 } from './styles';
 
 export interface ProductInfoProps extends ProductProps {}
 
 export default function ProductInfo(props: ProductInfoProps) {
   const [size, setSize] = useState<string>('');
+  const [quantity, setQuantity] = useState<string>('');
 
   const handleSize = (e: any) => {
     setSize(e.target.value);
@@ -23,11 +28,11 @@ export default function ProductInfo(props: ProductInfoProps) {
       <Header>
         <img src={props.image} />
         <h1>{props.title}</h1>
-        <span>{`$${props.price}`}</span>
+        <Price>{`$${props.price}`}</Price>
         <Container>
-          <span>
+          <Span>
             Size: <span>{size}</span>
-          </span>
+          </Span>
           {props.category.includes('clothing') ? (
             <Container>
               <Button onClick={handleSize} value='XS'>
@@ -50,8 +55,18 @@ export default function ProductInfo(props: ProductInfoProps) {
               </Button>
             </Container>
           ) : (
-            <span></span>
+            <Span>No results...</Span>
           )}
+          <ContainerSelectQty>
+            <Span>Qty: </Span>
+            <SelectQty onChange={(e) => setQuantity(e.target.value)}>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+            </SelectQty>
+          </ContainerSelectQty>
         </Container>
         <Container>
           <ButtonAddToCart>ADD TO CART</ButtonAddToCart>

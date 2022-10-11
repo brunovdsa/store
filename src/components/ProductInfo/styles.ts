@@ -6,6 +6,35 @@ export const Container = styled.div`
 
   max-width: 95vw;
 `;
+
+export const Price = styled.span`
+  font-size: ${(props) => props.theme.font_size.md};
+  font-weight: ${(props) => props.theme.font_weight.black};
+`;
+
+export const ContainerSelectQty = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+
+  span {
+    margin: 0;
+  }
+`;
+
+export const Span = styled.span`
+  margin-top: 0.5rem;
+  color: ${(props) => props.theme.colors.caption_400};
+  font-size: ${(props) => props.theme.font_size.xsm};
+  font-weight: ${(props) => props.theme.font_weight.regular};
+
+  span {
+    color: ${(props) => props.theme.colors.text};
+    font-size: ${(props) => props.theme.font_size.xsm};
+    font-weight: ${(props) => props.theme.font_weight.bold};
+  }
+`;
+
 export const Header = styled.header`
   display: flex;
   flex-direction: column;
@@ -24,22 +53,7 @@ export const Header = styled.header`
     font-size: ${(props) => props.theme.font_size.md};
     font-weight: ${(props) => props.theme.font_weight.regular};
   }
-  span {
-    font-size: ${(props) => props.theme.font_size.md};
-    font-weight: ${(props) => props.theme.font_weight.black};
-  }
-  div > span {
-    margin-top: 0.5rem;
-    color: ${(props) => props.theme.colors.caption_400};
-    font-size: ${(props) => props.theme.font_size.xsm};
-    font-weight: ${(props) => props.theme.font_weight.regular};
 
-    span {
-      color: ${(props) => props.theme.colors.text};
-      font-size: ${(props) => props.theme.font_size.xsm};
-      font-weight: ${(props) => props.theme.font_weight.bold};
-    }
-  }
   div > div {
     margin-top: 1rem;
     display: flex;
@@ -49,6 +63,8 @@ export const Header = styled.header`
     gap: 0.5rem;
   }
 `;
+
+export const SelectQty = styled.select``;
 
 export const ButtonAddToCart = styled.button`
   margin: 1rem 0;
