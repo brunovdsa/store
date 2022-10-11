@@ -1,27 +1,35 @@
 import { useState } from 'react';
 import { ProductProps } from '../../interface/productInterface';
+import AddToCartBtn from '../AddToCartBtn';
 import {
   Button,
   Container,
   H1,
   Header,
   ContainerDescription,
-  ButtonAddToCart,
   SelectQty,
   ContainerSelectQty,
   Span,
   Price,
 } from './styles';
 
-export interface ProductInfoProps extends ProductProps {}
+export interface ProductInfoProps extends ProductProps {
+  producId: string | undefined;
+}
 
 export default function ProductInfo(props: ProductInfoProps) {
   const [size, setSize] = useState<string>('');
-  const [quantity, setQuantity] = useState<string>('');
+  const [quantity, setQuantity] = useState<number>(1);
 
   const handleSize = (e: any) => {
     setSize(e.target.value);
   };
+
+  const handleQuantity = (e: any) => {
+    setQuantity(e.target.value);
+  };
+
+  let nowDate: Date = new Date();
 
   return (
     <Container>
@@ -59,7 +67,7 @@ export default function ProductInfo(props: ProductInfoProps) {
           )}
           <ContainerSelectQty>
             <Span>Qty: </Span>
-            <SelectQty onChange={(e) => setQuantity(e.target.value)}>
+            <SelectQty onChange={handleQuantity}>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -69,7 +77,16 @@ export default function ProductInfo(props: ProductInfoProps) {
           </ContainerSelectQty>
         </Container>
         <Container>
-          <ButtonAddToCart>ADD TO CART</ButtonAddToCart>
+          <AddToCartBtn
+            date={nowDate}
+            products={{
+              productId: props.producId,
+              quantity: quantity,
+              size: size,
+            }}
+          >
+            ADD TO CART
+          </AddToCartBtn>
         </Container>
       </Header>
       <Container>

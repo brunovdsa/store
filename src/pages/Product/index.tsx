@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import axios from 'axios';
-
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import usePersistedState from '../../utils/usePersistedState';
@@ -64,6 +62,7 @@ export default function Product() {
               description={`${data.description}`}
               category={`${data.category}`}
               image={`${data.image}`}
+              producId={id}
             />
           </Container>
         </>
