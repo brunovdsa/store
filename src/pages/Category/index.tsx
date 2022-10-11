@@ -41,7 +41,7 @@ export default function Category() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header toggleTheme={toggleTheme} />
+        <Header toggleTheme={toggleTheme} theme={theme} />
         <PathContainer>
           <ProductPath to={'/'} content={'Home'} />
         </PathContainer>

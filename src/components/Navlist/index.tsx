@@ -4,8 +4,6 @@ import Switch from 'react-switch';
 
 import { DefaultTheme, ThemeContext } from 'styled-components';
 
-import usePersistedState from '../../utils/usePersistedState';
-
 import {
   Button,
   Nav,
@@ -14,33 +12,26 @@ import {
   NavHeader,
   NavContent,
   NavFooter,
-  ThemeSwitcherButton,
   ThemeSwitcherContainer,
 } from './styles';
 
 import { MenuIcon, CloseIcon, MoonIcon, SunIcon } from '../Icons';
 import DropDown from '../DropDown';
 import { Menu } from '@headlessui/react';
-import light from '../../theme/light';
-import dark from '../../theme/dark';
-import ProfileMenuDropDown from '../ProfileDropDownMenu/index';
 
 interface NavListProps {
   toggleTheme(): void;
+  theme: DefaultTheme;
 }
 
 export default function Navlist(props: NavListProps) {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
 
   const { colors, title } = useContext(ThemeContext);
 
   const dropDownRef = useRef(null);
 
   const onClick = () => setIsActive(!isActive);
-
-  const toogleIcon = (e: any) =>
-    setTheme(theme.title === 'dark' ? light : dark);
 
   return (
     <Container>
@@ -96,30 +87,19 @@ export default function Navlist(props: NavListProps) {
 
         <NavFooter>
           <ThemeSwitcherContainer>
-            <ProfileMenuDropDown />
-            <ThemeSwitcherButton
-              style={{
-                backgroundColor: 'transparent',
-                border: 'none',
-                height: '3rem',
-                width: '5rem',
-              }}
-              onClick={toogleIcon}
-            >
-              {theme.title === 'dark' ? <SunIcon /> : <MoonIcon />}
-              <Switch
-                onChange={props.toggleTheme}
-                checked={title === 'dark'}
-                checkedIcon={false}
-                uncheckedIcon={false}
-                height={4}
-                width={30}
-                handleDiameter={15}
-                offColor={colors.text_overlay}
-                onColor={colors.text_overlay}
-                offHandleColor={colors.text_overlay_negative}
-              />
-            </ThemeSwitcherButton>
+            {props.theme.title === 'light' ? <SunIcon /> : <MoonIcon />}
+            <Switch
+              onChange={props.toggleTheme}
+              checked={title === 'dark'}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={4}
+              width={30}
+              handleDiameter={15}
+              offColor={colors.text_overlay}
+              onColor={colors.text_overlay}
+              offHandleColor={colors.text_overlay_negative}
+            />
           </ThemeSwitcherContainer>
         </NavFooter>
       </Nav>

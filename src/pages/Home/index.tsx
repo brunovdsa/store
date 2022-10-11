@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header toggleTheme={toggleTheme} />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Container>
         <SearchBar OnChange={handleFilter} value={search} />
         {filteredData.length > 0 ? (

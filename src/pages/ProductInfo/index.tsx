@@ -39,7 +39,7 @@ export default function Product() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header toggleTheme={toggleTheme} />
+      <Header toggleTheme={toggleTheme} theme={theme} />
 
       {data !== undefined ? (
         <>

@@ -79,16 +79,9 @@ export const ThemeSwitcherContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
   padding: 0.5rem;
-`;
-
-export const ThemeSwitcherButton = styled.button`
-  display: flex;
-  align-items: center;
-  svg {
-    margin: 0.1rem 0.3rem 0;
-  }
 `;
 
 export const Li = styled.li`
