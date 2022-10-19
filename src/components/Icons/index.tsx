@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleDown,
   faBars,
+  faCartShopping,
   faMagnifyingGlass,
   faMoon,
   faSun,
@@ -9,7 +10,7 @@ import {
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
-interface expandIconProps {
+interface IconProps {
   style: React.CSSProperties;
 }
 
@@ -25,7 +26,7 @@ export function SearchIcon() {
   return <FontAwesomeIcon icon={faMagnifyingGlass} />;
 }
 
-export function ExpandIcon(props: expandIconProps) {
+export function ExpandIcon(props: IconProps) {
   return <FontAwesomeIcon icon={faAngleDown} style={props.style} />;
 }
 
@@ -39,4 +40,8 @@ export function SunIcon() {
 
 export function ProfileIcon() {
   return <FontAwesomeIcon icon={faUser} size={'sm'} />;
+}
+
+export function CartIcon() {
+  return <FontAwesomeIcon icon={faCartShopping} size='2x' />;
 }

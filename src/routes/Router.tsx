@@ -9,6 +9,7 @@ const Router = () => (
       <Route path='/' element={<Home />} />
       <Route path='/product/:id' element={<Product />} />
       <Route path='/products/category/:id' element={<Category />} />
+      <Route path='/cart' element={<Home />} />
     </Routes>
   </BrowserRouter>
 );

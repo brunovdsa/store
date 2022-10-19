@@ -1,19 +1,18 @@
-import { AxiosResponse } from 'axios';
-import { ReactNode, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { API } from '../../services';
+import { Button } from './styles';
 
-export interface ProductsToCart {
+export interface AddProductsToCart {
   date: Date;
   products: {
     productId: string | undefined;
     quantity: number;
     size?: string;
   };
-  children: ReactNode;
 }
 
-export default function AddToCartBtn(props: ProductsToCart) {
-  const [productsToCart, setProductsToCart] = useState<ProductsToCart>();
+export default function AddToCartBtn(props: AddProductsToCart) {
+  const [productsToCart, setProductsToCart] = useState<AddProductsToCart>();
 
   const onClick = async (e: any) => {
     e.preventDefault();
@@ -29,15 +28,13 @@ export default function AddToCartBtn(props: ProductsToCart) {
       ],
     };
 
-    const data: ProductsToCart = await API.post('carts', requestOptions);
+    const data: AddProductsToCart = await API.post('carts', requestOptions);
     setProductsToCart(data);
+
+    return productsToCart;
   };
 
   console.log(productsToCart);
 
-  return (
-    <div>
-      <button onClick={onClick}>Aqui</button>
-    </div>
-  );
+  return <Button onClick={onClick}>ADD TO CART</Button>;
 }

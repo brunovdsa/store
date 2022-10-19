@@ -84,9 +84,7 @@ export default function ProductInfo(props: ProductInfoProps) {
               quantity: quantity,
               size: size,
             }}
-          >
-            ADD TO CART
-          </AddToCartBtn>
+          ></AddToCartBtn>
         </Container>
       </Header>
       <Container>

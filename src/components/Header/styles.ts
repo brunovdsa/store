@@ -8,3 +8,13 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0 1rem;
 `;
+
+export const Button = styled.button`
+  width: 4rem;
+  border: none;
+  background-color: ${(props) => props.theme.colors.background_900};
+
+  svg {
+    color: ${(props) => props.theme.colors.text};
+  }
+`;

@@ -19,7 +19,9 @@ import RelatedProducts from '../../components/RelatedProducts';
 import { API } from '../../services';
 import ProductPath from '../../components/ProductPath';
 
-export default function Product() {
+export interface ProductPageProps {}
+
+export default function Product(props: ProductPageProps) {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
   const [data, setData] = useState<ProductProps>();
 
@@ -34,6 +36,7 @@ export default function Product() {
   const toggleTheme = () => {
     setTheme(theme.title === 'dark' ? light : dark);
   };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
