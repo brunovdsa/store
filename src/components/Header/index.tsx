@@ -9,11 +9,11 @@ interface HeaderProps {
   toggleTheme(): void;
   id?: string;
   theme: DefaultTheme;
-  itemsOnCart?: any;
+  itemsOnCart: any;
 }
 
 export function Header(props: HeaderProps) {
-  // const itemsOnCart: number = props.itemsOnCart;
+  const itemsOnCart: number = props.itemsOnCart;
 
   return (
     <Container>
@@ -22,7 +22,7 @@ export function Header(props: HeaderProps) {
         <Link to={`/cart/${props.itemsOnCart}`}>
           <CartIcon />
         </Link>
-        {/* {<h1>{itemsOnCart}</h1>} */}
+        {<h1>{itemsOnCart}</h1>}
       </Button>
     </Container>
   );

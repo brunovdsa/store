@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { ProductProps } from '../../interface/productInterface';
-import AddToCartBtn from '../AddToCartBtn';
+import { AddProductsToCart } from '../../pages/Product';
 import {
   Button,
   Container,
@@ -11,26 +10,17 @@ import {
   ContainerSelectQty,
   Span,
   Price,
+  ButtonAddToCart,
 } from './styles';
 
 export interface ProductInfoProps extends ProductProps {
-  producId: string | undefined;
+  onClick: (e: any) => Promise<void>;
+  handleQuantity: (e: any) => void;
+  handleSize: (e: any) => void;
+  size: string;
 }
 
 export default function ProductInfo(props: ProductInfoProps) {
-  const [size, setSize] = useState<string>('');
-  const [quantity, setQuantity] = useState<number>(1);
-
-  const handleSize = (e: any) => {
-    setSize(e.target.value);
-  };
-
-  const handleQuantity = (e: any) => {
-    setQuantity(e.target.value);
-  };
-
-  let nowDate: Date = new Date();
-
   return (
     <Container>
       <Header>
@@ -39,26 +29,26 @@ export default function ProductInfo(props: ProductInfoProps) {
         <Price>{`$${props.price}`}</Price>
         <Container>
           <Span>
-            Size: <span>{size}</span>
+            Size: <span>{props.size}</span>
           </Span>
           {props.category.includes('clothing') ? (
             <Container>
-              <Button onClick={handleSize} value='XS'>
+              <Button onClick={props.handleSize} value='XS'>
                 XS
               </Button>
-              <Button onClick={handleSize} value='S'>
+              <Button onClick={props.handleSize} value='S'>
                 S
               </Button>
-              <Button onClick={handleSize} value='S'>
+              <Button onClick={props.handleSize} value='S'>
                 S
               </Button>
-              <Button onClick={handleSize} value='L'>
+              <Button onClick={props.handleSize} value='L'>
                 L
               </Button>
-              <Button onClick={handleSize} value='XL'>
+              <Button onClick={props.handleSize} value='XL'>
                 XL
               </Button>
-              <Button onClick={handleSize} value='XXL'>
+              <Button onClick={props.handleSize} value='XXL'>
                 XXL
               </Button>
             </Container>
@@ -67,7 +57,7 @@ export default function ProductInfo(props: ProductInfoProps) {
           )}
           <ContainerSelectQty>
             <Span>Qty: </Span>
-            <SelectQty onChange={handleQuantity}>
+            <SelectQty onChange={props.handleQuantity}>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -77,14 +67,7 @@ export default function ProductInfo(props: ProductInfoProps) {
           </ContainerSelectQty>
         </Container>
         <Container>
-          <AddToCartBtn
-            date={nowDate}
-            products={{
-              productId: props.producId,
-              quantity: quantity,
-              size: size,
-            }}
-          ></AddToCartBtn>
+          <ButtonAddToCart onClick={props.onClick}>ADD TO CART</ButtonAddToCart>
         </Container>
       </Header>
       <Container>

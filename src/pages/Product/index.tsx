@@ -19,11 +19,24 @@ import RelatedProducts from '../../components/RelatedProducts';
 import { API } from '../../services';
 import ProductPath from '../../components/ProductPath';
 
-export interface ProductPageProps {}
+export interface ProductPageProps extends AddProductsToCart {}
+
+export interface AddProductsToCart {
+  date: Date;
+  products: {
+    productId: string | undefined;
+    quantity: number;
+    size?: string;
+  };
+}
 
 export default function Product(props: ProductPageProps) {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', dark);
   const [data, setData] = useState<ProductProps>();
+  const [productsToCart, setProductsToCart] = useState<AddProductsToCart>();
+  const [productSize, setProductSize] = useState<string>('');
+  const [productiQuantity, setProductQuantity] = useState<number>(1);
+  const [qtyOfProductsOnCart, setQtyOfProductsOnCart] = useState<string>('');
 
   const { id } = useParams();
 
@@ -37,10 +50,46 @@ export default function Product(props: ProductPageProps) {
     setTheme(theme.title === 'dark' ? light : dark);
   };
 
+  const handleSize = (e: any) => {
+    setProductSize(e.target.value);
+  };
+
+  const handleQuantity = (e: any) => {
+    setProductQuantity(e.target.value);
+  };
+
+  let nowDate: Date = new Date();
+
+  const onClick = async (e: any) => {
+    e.preventDefault();
+
+    const requestOptions = {
+      date: nowDate.toString(),
+      products: [
+        {
+          productId: id,
+          quantity: productiQuantity,
+          size: productSize,
+        },
+      ],
+    };
+
+    const data: AddProductsToCart = await API.post('carts', requestOptions);
+    setProductsToCart(data);
+
+    productsToCart !== undefined
+      ? setQtyOfProductsOnCart(qtyOfProductsOnCart + 1)
+      : setQtyOfProductsOnCart(qtyOfProductsOnCart);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header toggleTheme={toggleTheme} theme={theme} />
+      <Header
+        toggleTheme={toggleTheme}
+        theme={theme}
+        itemsOnCart={qtyOfProductsOnCart}
+      />
 
       {data !== undefined ? (
         <>
@@ -65,7 +114,10 @@ export default function Product(props: ProductPageProps) {
               description={`${data.description}`}
               category={`${data.category}`}
               image={`${data.image}`}
-              producId={id}
+              onClick={onClick}
+              handleQuantity={handleQuantity}
+              handleSize={handleSize}
+              size={productSize}
             />
           </Container>
         </>
