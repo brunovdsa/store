@@ -18,8 +18,8 @@ export default {
 
     shape: '#2a2634',
 
-    primary: '#03dac6',
-    success: '#6200ee',
+    primary: ' #6200ee',
+    success: '#03dac6',
     error: '#b00020',
     overlay: 'rgba(0,0,0,0.9)',
   },

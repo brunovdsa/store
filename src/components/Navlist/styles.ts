@@ -18,6 +18,7 @@ export const StyledNavLink = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${(props) => props.theme.colors.overlay};
+  z-index: 1;
 `;
 
 export const Nav = styled.nav`
