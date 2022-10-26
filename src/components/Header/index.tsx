@@ -9,7 +9,7 @@ interface HeaderProps {
   toggleTheme(): void;
   id?: string;
   theme: DefaultTheme;
-  itemsOnCart: string;
+  itemsOnCart: number;
 }
 
 export function Header(props: HeaderProps) {
@@ -20,8 +20,8 @@ export function Header(props: HeaderProps) {
         <Link to={`/cart/${props.itemsOnCart}`}>
           <CartIcon />
         </Link>
-        {props.itemsOnCart === '' ? (
-          <H1 style={{ visibility: 'hidden' }}></H1>
+        {props.itemsOnCart === 0 ? (
+          <H1 style={{ display: 'none', backgroundColor: 'transparent' }}></H1>
         ) : (
           <H1>{props.itemsOnCart}</H1>
         )}

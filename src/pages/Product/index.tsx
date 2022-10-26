@@ -36,7 +36,7 @@ export default function Product(props: ProductPageProps) {
   const [productsToCart, setProductsToCart] = useState<AddProductsToCart>();
   const [productSize, setProductSize] = useState<string>('');
   const [productiQuantity, setProductQuantity] = useState<number>(1);
-  const [qtyOfProductsOnCart, setQtyOfProductsOnCart] = useState<string>('');
+  const [qtyOfProductsOnCart, setQtyOfProductsOnCart] = useState<number>(0);
 
   const { id } = useParams();
 
